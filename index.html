@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt claude INI TUTORIAL</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex items-center justify-center p-3 sm:p-6 selection:bg-indigo-500 selection:text-white">
+
+    <!-- Container Utama Vertikal / Portrait (9:16 Feel) -->
+    <div class="w-full max-w-[430px] bg-slate-900 border border-slate-800 rounded-[2rem] shadow-2xl shadow-indigo-950/30 overflow-hidden flex flex-col min-h-[85vh] sm:min-h-[760px] relative">
+        
+        <!-- Header Aplikasi -->
+        <header class="px-6 pt-6 pb-4 bg-slate-900/90 backdrop-blur-md border-b border-slate-800/80 sticky top-0 z-20">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-500 flex items-center justify-center shadow-lg shadow-indigo-500/30">
+                        <i data-lucide="sparkles" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <div>
+                        <h1 class="font-extrabold text-sm tracking-tight text-white leading-tight">Prompt claude</h1>
+                        <span class="text-[11px] font-bold tracking-wider uppercase text-indigo-400">INI TUTORIAL</span>
+                    </div>
+                </div>
+                <span id="step-badge" class="px-3 py-1 rounded-full text-xs font-semibold bg-indigo-500/15 text-indigo-300 border border-indigo-500/30">
+                    Lapis 1 / 3
+                </span>
+            </div>
+
+            <!-- Progress Bar 3 Lapisan -->
+            <div class="grid grid-cols-3 gap-2">
+                <div id="prog-1" class="h-1.5 rounded-full bg-indigo-500 transition-all duration-300"></div>
+                <div id="prog-2" class="h-1.5 rounded-full bg-slate-800 transition-all duration-300"></div>
+                <div id="prog-3" class="h-1.5 rounded-full bg-slate-800 transition-all duration-300"></div>
+            </div>
+        </header>
+
+        <!-- Konten Dinamis Berdasarkan Lapisan -->
+        <main class="flex-1 p-6 flex flex-col justify-between overflow-y-auto">
+
+            <!-- ================= LAPISAN 1 ================= -->
+            <section id="layer-1" class="flex-1 flex flex-col justify-between space-y-6 animate-fade">
+                <div class="my-auto text-center space-y-5 py-4">
+                    <div class="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-b from-indigo-500/20 to-purple-500/10 border border-indigo-500/30 flex items-center justify-center shadow-inner">
+                        <i data-lucide="rocket" class="w-10 h-10 text-indigo-400"></i>
+                    </div>
+
+                    <div class="space-y-2">
+                        <span class="inline-block px-3 py-1 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20 text-xs font-medium">
+                            Gerbang Kreator • Sisa 1 Lapis Lagi
+                        </span>
+                        <h2 class="text-2xl font-extrabold text-white tracking-tight">
+                            Halo para kreator! 👋
+                        </h2>
+                    </div>
+
+                    <div class="bg-slate-800/60 border border-slate-700/70 rounded-2xl p-5 text-left space-y-3 shadow-sm">
+                        <p class="text-sm text-slate-200 leading-relaxed">
+                            Selamat datang! Kamu sudah berada di gerbang akses untuk mendapatkan <strong class="text-indigo-400">Prompt Spesial Claude + Remotion</strong>.
+                        </p>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Tenang, tinggal <strong>1 lapis panduan penting</strong> lagi sebelum prompt utamanya terbuka penuh. Pastikan kamu menyimak aturan mainnya di tahap berikutnya agar hasil videomu maksimal dan bebas error!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <button onclick="goToLayer(2)" class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-base shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center gap-2">
+                        <span>Next — Lanjut ke Panduan</span>
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </section>
+
+            <!-- ================= LAPISAN 2 ================= -->
+            <section id="layer-2" class="hidden flex-1 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                    <!-- Header Peringatan -->
+                    <div class="bg-amber-500/10 border border-amber-500/30 rounded-2xl p-4 flex items-start gap-3">
+                        <i data-lucide="alert-triangle" class="w-6 h-6 text-amber-400 shrink-0 mt-0.5"></i>
+                        <div>
+                            <h2 class="text-sm font-bold text-amber-300">Peringatan Wajib Dibaca!</h2>
+                            <p class="text-xs text-amber-200/80 mt-0.5 leading-relaxed">
+                                Sekarang tinggal pencet <strong>Next</strong>, tapi baca dulu 4 aturan penting di bawah ini supaya tidak gagal saat eksekusi:
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Daftar 4 Poin yang Sudah Dirapikan -->
+                    <div class="space-y-3">
+                        <!-- Poin 1 -->
+                        <div class="bg-slate-800/70 border border-slate-700/70 rounded-2xl p-3.5 flex gap-3">
+                            <span class="w-6 h-6 rounded-lg bg-indigo-500/20 text-indigo-300 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">1</span>
+                            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                                <strong>Siapkan Materi Dasar:</strong> Minta Claude membuatkan <em>naskah, deskripsi adegan, dan konsep</em> terlebih dahulu, lalu salin dan pasang pada kolom yang tersedia di prompt nanti.
+                            </p>
+                        </div>
+
+                        <!-- Poin 2 -->
+                        <div class="bg-slate-800/70 border border-slate-700/70 rounded-2xl p-3.5 flex gap-3">
+                            <span class="w-6 h-6 rounded-lg bg-indigo-500/20 text-indigo-300 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">2</span>
+                            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                                <strong>Jangan Langsung Kirim Prompt!</strong> Buat <em>Voice Over (VO)</em> dulu di <strong>ElevenLabs</strong> (via website atau aplikasi). Tempel naskah tadi, pilih karakter suara favoritmu, tunggu proses selesai, lalu <strong>download file MP3</strong>-nya.
+                            </p>
+                        </div>
+
+                        <!-- Poin 3 -->
+                        <div class="bg-slate-800/70 border border-slate-700/70 rounded-2xl p-3.5 flex gap-3">
+                            <span class="w-6 h-6 rounded-lg bg-indigo-500/20 text-indigo-300 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">3</span>
+                            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                                <strong>Lampirkan Audio ke Claude:</strong> Sertakan file voice over tadi ke dalam chat Claude dengan cara tekan tombol <strong>tanda (+)</strong> &rarr; pilih <strong>File</strong> &rarr; unggah file <strong>MP3 ElevenLabs</strong> milikmu.
+                            </p>
+                        </div>
+
+                        <!-- Poin 4 -->
+                        <div class="bg-slate-800/70 border border-slate-700/70 rounded-2xl p-3.5 flex gap-3">
+                            <span class="w-6 h-6 rounded-lg bg-indigo-500/20 text-indigo-300 font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">4</span>
+                            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                                <strong>Trik Jika Claude Menolak:</strong> Jika Claude merespons bahwa <em>Remotion tidak tersedia</em> atau kendala serupa, cukup balas dengan mengetik satu kata: <code class="px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-bold">"bikin"</code>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Verifikasi Membaca 2 Langkah -->
+                    <div class="bg-slate-950/80 border border-indigo-500/30 rounded-2xl p-4 space-y-4 mt-2">
+                        <div class="flex items-center gap-2 border-b border-slate-800 pb-2.5">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-indigo-400"></i>
+                            <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-300">Verifikasi Membaca (2 Langkah)</h3>
+                        </div>
+
+                        <!-- Langkah 1 -->
+                        <div class="space-y-1.5">
+                            <label for="verify-input-1" class="block text-xs font-semibold text-slate-300">
+                                Langkah 1: Apa hal penting yang kamu ingat dari panduan di atas?
+                            </label>
+                            <input 
+                                type="text" 
+                                id="verify-input-1" 
+                                oninput="checkVerification()"
+                                placeholder="Contoh: Bikin voice over di ElevenLabs dulu..."
+                                class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs sm:text-sm text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500 transition-colors"
+                            >
+                        </div>
+
+                        <!-- Langkah 2 -->
+                        <div class="space-y-1.5">
+                            <label for="verify-select-2" class="block text-xs font-semibold text-slate-300">
+                                Langkah 2: Apakah kamu benar-benar sudah membaca semuanya?
+                            </label>
+                            <select 
+                                id="verify-select-2" 
+                                onchange="checkVerification()"
+                                class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-xs sm:text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+                            >
+                                <option value="">-- Pilih jawaban konfirmasi --</option>
+                                <option value="ya">Ya, saya sudah benar-benar membaca dan paham</option>
+                                <option value="siap">Sudah baca 100%, siap lanjut ke prompt</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tombol Next Terkunci sampai Verifikasi Selesai -->
+                <div class="pt-2 space-y-2">
+                    <button 
+                        id="btn-layer-2-next" 
+                        disabled 
+                        onclick="goToLayer(3)" 
+                        class="w-full py-4 px-6 rounded-2xl bg-slate-800 text-slate-500 font-bold text-sm sm:text-base cursor-not-allowed transition-all flex items-center justify-center gap-2 border border-slate-700/50"
+                    >
+                        <i id="lock-icon" data-lucide="lock" class="w-4 h-4"></i>
+                        <span id="btn-layer-2-text">Lengkapi Verifikasi untuk Next</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- ================= LAPISAN 3 ================= -->
+            <section id="layer-3" class="hidden flex-1 flex flex-col justify-between space-y-5">
+                <div class="space-y-4">
+                    <div class="text-center space-y-1">
+                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 text-xs font-semibold">
+                            <i data-lucide="check-circle-2" class="w-3.5 h-3.5"></i>
+                            <span>Akses Terbuka</span>
+                        </div>
+                        <h2 class="text-xl font-extrabold text-white">Ini dia prompt Claude-nya!</h2>
+                        <p class="text-xs text-slate-400">Letaknya di bawah ya, tinggal salin dan sesuaikan isinya.</p>
+                    </div>
+
+                    <!-- Kotak Prompt yang Bisa Disalin -->
+                    <div class="relative bg-slate-950 border border-slate-700/80 rounded-2xl p-4 shadow-inner">
+                        <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-800">
+                            <span class="text-[11px] font-mono uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+                                <i data-lucide="terminal" class="w-3.5 h-3.5 text-indigo-400"></i>
+                                Remotion Vertical 9:16
+                            </span>
+                            <button 
+                                onclick="copyPrompt()" 
+                                id="copy-btn-top"
+                                class="px-3 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 active:scale-95 text-white text-xs font-semibold transition-all flex items-center gap-1.5 shadow-sm"
+                            >
+                                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                                <span>Salin</span>
+                            </button>
+                        </div>
+
+                        <!-- Isi Prompt Persis Seperti Permintaan -->
+                        <pre id="prompt-content" class="text-xs sm:text-[13px] font-sans text-slate-200 whitespace-pre-wrap leading-relaxed select-all">Gunakan Remotion untuk membuat video animasi vertikal 9:16 (1080×1920, 30 FPS), ekspor MP4 H.264.
+
+Konsep:
+Isi konsep di sini.
+
+Audio:
+Gunakan audio terlampir sebagai voice-over utama dan sinkronkan seluruh adegan dengannya.
+
+Subtitle:
+Gunakan bahasa Indonesia, maksimal 3–5 kata per potongan, mudah dibaca di HP, dan highlight kata yang sedang diucapkan jika memungkinkan.
+
+Gaya Visual:
+Buat visual yang kreatif, profesional, memiliki identitas tersendiri, dan tidak meniru karya kreator lain.
+
+Naskah:
+Isi naskah di sini.
+
+Adegan:
+Isi deskripsi adegan di sini.
+
+Durasi:
+Isi durasi video di sini.</pre>
+                    </div>
+                </div>
+
+                <!-- Tombol Aksi Utama Salin Prompt & Ulangi -->
+                <div class="space-y-2.5 pt-2">
+                    <button 
+                        onclick="copyPrompt()" 
+                        id="copy-btn-main"
+                        class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 active:scale-[0.98] text-white font-bold text-base shadow-lg shadow-emerald-600/25 transition-all flex items-center justify-center gap-2"
+                    >
+                        <i data-lucide="clipboard-copy" class="w-5 h-5"></i>
+                        <span id="copy-btn-text">Salin Prompt Sekarang</span>
+                    </button>
+
+                    <button 
+                        onclick="goToLayer(2)" 
+                        class="w-full py-2.5 px-4 rounded-xl bg-slate-800/70 hover:bg-slate-800 text-slate-400 hover:text-slate-200 text-xs font-medium transition-colors flex items-center justify-center gap-1.5"
+                    >
+                        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+                        <span>Baca Ulang Panduan Lapis 2</span>
+                    </button>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Notifikasi Toast Melayang (Pengganti alert) -->
+        <div id="toast" class="pointer-events-none fixed bottom-6 left-1/2 -translate-x-1/2 z-50 opacity-0 translate-y-4 transition-all duration-300">
+            <div class="bg-slate-800 border border-emerald-500/40 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center gap-2.5 text-xs sm:text-sm font-semibold">
+                <div class="w-6 h-6 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                    <i data-lucide="check" class="w-4 h-4"></i>
+                </div>
+                <span id="toast-message">Prompt berhasil disalin ke clipboard!</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Inisialisasi ikon Lucide saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+        });
+
+        // Fungsi navigasi antar lapisan (1, 2, 3)
+        function goToLayer(layerNumber) {
+            // Sembunyikan semua lapisan
+            document.getElementById('layer-1').classList.add('hidden');
+            document.getElementById('layer-2').classList.add('hidden');
+            document.getElementById('layer-3').classList.add('hidden');
+
+            // Tampilkan lapisan yang dituju
+            const targetLayer = document.getElementById(`layer-${layerNumber}`);
+            targetLayer.classList.remove('hidden');
+
+            // Update badge header
+            document.getElementById('step-badge').textContent = `Lapis ${layerNumber} / 3`;
+
+            // Update progress bar
+            for (let i = 1; i <= 3; i++) {
+                const prog = document.getElementById(`prog-${i}`);
+                if (i <= layerNumber) {
+                    prog.classList.remove('bg-slate-800');
+                    prog.classList.add('bg-indigo-500');
+                } else {
+                    prog.classList.remove('bg-indigo-500');
+                    prog.classList.add('bg-slate-800');
+                }
+            }
+
+            // Scroll ke atas container utama
+            document.querySelector('main').scrollTop = 0;
+            lucide.createIcons();
+        }
+
+        // Validasi 2 langkah verifikasi membaca di Lapisan 2
+        function checkVerification() {
+            const step1Value = document.getElementById('verify-input-1').value.trim();
+            const step2Value = document.getElementById('verify-select-2').value;
+            const nextBtn = document.getElementById('btn-layer-2-next');
+            const btnText = document.getElementById('btn-layer-2-text');
+
+            // Syarat: Langkah 1 diisi minimal 4 karakter & Langkah 2 dipilih
+            const isVerified = step1Value.length >= 4 && step2Value !== "";
+
+            if (isVerified) {
+                nextBtn.disabled = false;
+                nextBtn.className = "w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 active:scale-[0.98] text-white font-bold text-base shadow-lg shadow-indigo-600/30 transition-all flex items-center justify-center gap-2 cursor-pointer";
+                btnText.textContent = "Next — Buka Prompt Claude";
+                nextBtn.innerHTML = `<span>Next — Buka Prompt Claude</span><i data-lucide="unlock" class="w-5 h-5"></i>`;
+            } else {
+                nextBtn.disabled = true;
+                nextBtn.className = "w-full py-4 px-6 rounded-2xl bg-slate-800 text-slate-500 font-bold text-sm sm:text-base cursor-not-allowed transition-all flex items-center justify-center gap-2 border border-slate-700/50";
+                nextBtn.innerHTML = `<i data-lucide="lock" class="w-4 h-4"></i><span id="btn-layer-2-text">Lengkapi Verifikasi untuk Next</span>`;
+            }
+
+            lucide.createIcons();
+        }
+
+        // Fungsi menyalin teks prompt menggunakan execCommand (kompatibel di semua iFrame & HP)
+        function copyPrompt() {
+            const promptText = document.getElementById('prompt-content').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = promptText;
+            tempTextArea.style.position = 'fixed';
+            tempTextArea.style.left = '-9999px';
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            tempTextArea.setSelectionRange(0, 99999);
+
+            try {
+                document.execCommand('copy');
+                showToast('Prompt berhasil disalin ke clipboard!');
+                
+                // Ubah tampilan tombol sebentar sebagai umpan balik visual
+                const mainBtnText = document.getElementById('copy-btn-text');
+                mainBtnText.textContent = 'Tersalin!';
+                setTimeout(() => {
+                    mainBtnText.textContent = 'Salin Prompt Sekarang';
+                }, 2000);
+            } catch (err) {
+                showToast('Gagal menyalin, silakan blok teks secara manual.');
+            }
+
+            document.body.removeChild(tempTextArea);
+        }
+
+        // Menampilkan notifikasi toast halus
+        let toastTimeout;
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = message;
+
+            toast.classList.remove('opacity-0', 'translate-y-4');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-4');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
